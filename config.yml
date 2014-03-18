@@ -4,7 +4,7 @@
 # Requested by: GetSwated
 
 ShowServerName: true
-ServerName: '&c[&aEternal&5MC&c]'
-PlayerColor: '&f'
-MessageColor: '&6'
+ServerName: '&f[&aBroadcast&f]'
+PlayerColor: '&7'
+MessageColor: '&f'
 ErrorMessage: '&cYou need a message to broadcast silly!'

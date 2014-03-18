@@ -63,7 +63,7 @@ public final Logger logger = Logger.getLogger("Minecraft");
 		            	Message = ChatColor.translateAlternateColorCodes('&', Message);
 	            	 	String Player = getConfig().getString("PlayerColor");
 		            	Player = ChatColor.translateAlternateColorCodes('&', Player);
-		            	Bukkit.broadcastMessage(Message + args[0] + Player + " ~" + sender.getName());
+		            	Bukkit.broadcastMessage(Message + args[0] + Player + " - " + sender.getName());
 	            		
 	            	
 	            	}
