@@ -1,0 +1,10 @@
+# Thank you for using SimpleBroadcast
+# Version: 1.0
+# Made by: Evildude221
+# Requested by: GetSwated
+
+ShowServerName: true
+ServerName: '&c[&aEternal&5MC&c]'
+PlayerColor: '&f'
+MessageColor: '&6'
+ErrorMessage: '&cYou need a message to broadcast silly!'

@@ -1,0 +1,15 @@
+name: SimpleBroadcast
+main: me.cgfx360.simplebroadcast.Main
+version: 1.0
+description: >
+             Simply broadcast's a message
+commands:
+  broadcast:
+    description: Main command
+    permission: sb.use
+    permission-message: §cYou don't have permission
+permissions:
+  sb.use:
+    default: op
+
+    
