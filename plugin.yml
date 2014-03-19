@@ -6,6 +6,7 @@ description: >
 commands:
   broadcast:
     description: Main command
+    aliases: [bc, say]
     permission: sb.use
     permission-message: §cYou don't have permission
 permissions:
