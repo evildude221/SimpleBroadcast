@@ -29,9 +29,6 @@ public final Logger logger = Logger.getLogger("Minecraft");
 		System.out.println("Report any bugs or leave any suggestions by contacting Evildude221 on Bukkit!");
 		getConfig().options().copyDefaults(true);
 		saveConfig();
-		
-		
-		
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String Label, String args[]){
@@ -49,7 +46,8 @@ public final Logger logger = Logger.getLogger("Minecraft");
 	            }
 	           
 	            if(args.length == 1){
-	            	if (getConfig().getBoolean("ShowServerName")){
+	            	if (getConfig().getBoolean("ShowServerName") &&
+	            	getConfig().getBoolean("ShowPlayerName")){
 	            
 	            	String Server = getConfig().getString("ServerName");
 	            	Server = ChatColor.translateAlternateColorCodes('&', Server);
@@ -57,19 +55,47 @@ public final Logger logger = Logger.getLogger("Minecraft");
 	            	Message = ChatColor.translateAlternateColorCodes('&', Message);
 	            	String Player = getConfig().getString("PlayerColor");
 	            	Player = ChatColor.translateAlternateColorCodes('&', Player);
-	            	Bukkit.broadcastMessage(Server + " " + Message + args[0] + Player + " - " + sender.getName());
+	            	Bukkit.broadcastMessage(Server + " " + Message + args[0] + Player + " - " +  sender.getName());
 	            	}else{
+	            		if (getConfig().getBoolean("ShowServerName") &&
+	            				!getConfig().getBoolean("ShowPlayerName")){
+	            			String Server = getConfig().getString("ServerName");
+	    	            	Server = ChatColor.translateAlternateColorCodes('&', Server);
+	    	            	String Message = getConfig().getString("MessageColor");
+	    	            	Message = ChatColor.translateAlternateColorCodes('&', Message);
+	    	            	String Player = getConfig().getString("PlayerColor");
+	    	            	Player = ChatColor.translateAlternateColorCodes('&', Player);
+	    	            	Bukkit.broadcastMessage(Server + " " + Message + args[0]);	
+	            		
+	            	}else{
+	            		if (!getConfig().getBoolean("ShowServerName") &&
+	            				getConfig().getBoolean("ShowPlayerName")){
+	            	
 	            		String Message = getConfig().getString("MessageColor");
 		            	Message = ChatColor.translateAlternateColorCodes('&', Message);
 	            	 	String Player = getConfig().getString("PlayerColor");
 		            	Player = ChatColor.translateAlternateColorCodes('&', Player);
 		            	Bukkit.broadcastMessage(Message + args[0] + Player + " - " + sender.getName());
+		            	
+	            		}else{
+	            			if (!getConfig().getBoolean("ShowServerName") &&
+	            					!getConfig().getBoolean("ShowPlayerName")){
+	            				String Message = getConfig().getString("MessageColor");
+	    		            	Message = ChatColor.translateAlternateColorCodes('&', Message);
+	    	            	 	String Player = getConfig().getString("PlayerColor");
+	    		            	Player = ChatColor.translateAlternateColorCodes('&', Player);
+	    		            	Bukkit.broadcastMessage(Message + args[0]);
+	            			
+	            			}
+	            		}
 	            		
-	            	
+	            		
 	            	}
-	                }
+	               }
+	             }
 	            }
-	        }
+	    	}
+	       
 	    return false;
 	    }
 }

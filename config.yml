@@ -4,6 +4,7 @@
 # Requested by: GetSwated
 
 ShowServerName: true
+ShowPlayerName: true
 ServerName: '&f[&aBroadcast&f]'
 PlayerColor: '&7'
 MessageColor: '&f'
