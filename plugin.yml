@@ -1,6 +1,6 @@
 name: SimpleBroadcast
 main: me.cgfx360.simplebroadcast.Main
-version: 1.3
+version: 1.4
 description: >
              Simply broadcast's a message
 commands:
