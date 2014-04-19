@@ -45,7 +45,16 @@ public final Logger logger = Logger.getLogger("Minecraft");
 	           
 	            }
 	           
-	            if(args.length == 1){
+	            else{
+	            	
+	            	StringBuilder sb = new StringBuilder();
+	            	  for(int i = 0; i < args.length; i++){
+	            	    sb.append(args[i]).append(" ");
+	            	  }
+	            	  String messageToBroacast = sb.toString();
+	            	  
+	            	
+	            	
 	            	if (getConfig().getBoolean("ShowServerName") &&
 	            	getConfig().getBoolean("ShowPlayerName")){
 	            
@@ -55,7 +64,8 @@ public final Logger logger = Logger.getLogger("Minecraft");
 	            	Message = ChatColor.translateAlternateColorCodes('&', Message);
 	            	String Player = getConfig().getString("PlayerColor");
 	            	Player = ChatColor.translateAlternateColorCodes('&', Player);
-	            	Bukkit.broadcastMessage(Server + " " + Message + args[0] + Player + " - " +  sender.getName());
+	            	Bukkit.broadcastMessage(Server + " " + Message + messageToBroacast + Player + " - " + sender.getName());
+	            	
 	            	}else{
 	            		if (getConfig().getBoolean("ShowServerName") &&
 	            				!getConfig().getBoolean("ShowPlayerName")){
@@ -65,7 +75,8 @@ public final Logger logger = Logger.getLogger("Minecraft");
 	    	            	Message = ChatColor.translateAlternateColorCodes('&', Message);
 	    	            	String Player = getConfig().getString("PlayerColor");
 	    	            	Player = ChatColor.translateAlternateColorCodes('&', Player);
-	    	            	Bukkit.broadcastMessage(Server + " " + Message + args[0]);	
+	    	            	Bukkit.broadcastMessage(Server + " " + Message + messageToBroacast);
+	    	            		
 	            		
 	            	}else{
 	            		if (!getConfig().getBoolean("ShowServerName") &&
@@ -75,16 +86,14 @@ public final Logger logger = Logger.getLogger("Minecraft");
 		            	Message = ChatColor.translateAlternateColorCodes('&', Message);
 	            	 	String Player = getConfig().getString("PlayerColor");
 		            	Player = ChatColor.translateAlternateColorCodes('&', Player);
-		            	Bukkit.broadcastMessage(Message + args[0] + Player + " - " + sender.getName());
+		            	Bukkit.broadcastMessage(Message + messageToBroacast + Player + " - " + sender.getName());
 		            	
 	            		}else{
 	            			if (!getConfig().getBoolean("ShowServerName") &&
 	            					!getConfig().getBoolean("ShowPlayerName")){
 	            				String Message = getConfig().getString("MessageColor");
 	    		            	Message = ChatColor.translateAlternateColorCodes('&', Message);
-	    	            	 	String Player = getConfig().getString("PlayerColor");
-	    		            	Player = ChatColor.translateAlternateColorCodes('&', Player);
-	    		            	Bukkit.broadcastMessage(Message + args[0]);
+	    		            	Bukkit.broadcastMessage(Message + messageToBroacast);
 	            			
 	            			}
 	            		}
@@ -94,6 +103,7 @@ public final Logger logger = Logger.getLogger("Minecraft");
 	               }
 	             }
 	            }
+	
 	    	}
 	       
 	    return false;
